@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ReadFromFile {
 
@@ -26,7 +28,16 @@ public class ReadFromFile {
 		}else {
 			System.out.println("Ferrari is NOT available!");
 		}
+		System.out.println("=================");
 		br.close();
+		
+		//ANOTHER WAY TO READ A FILE using ReadAllBytes method
+		File cars1 = new File("cars.txt");
+		String str1 = new String(Files.readAllBytes(Paths.get(cars1.getPath())));
+		System.out.println("=======using ReadAllBytes method==========");
+		System.out.println(str1);
+		
+		
 	}
 
 }
